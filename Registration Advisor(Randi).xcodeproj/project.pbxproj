@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		5077ED922F7DEEAC00EF77C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5077ED7C2F7DEEAA00EF77C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5077ED832F7DEEAA00EF77C4;
+			remoteInfo = "Registration Advisor(Randi)";
+		};
+		5077ED9C2F7DEEAC00EF77C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5077ED7C2F7DEEAA00EF77C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5077ED832F7DEEAA00EF77C4;
+			remoteInfo = "Registration Advisor(Randi)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5077ED842F7DEEAA00EF77C4 /* Registration Advisor(Randi).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Registration Advisor(Randi).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5077ED912F7DEEAC00EF77C4 /* Registration Advisor(Randi)Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Registration Advisor(Randi)Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5077ED9B2F7DEEAC00EF77C4 /* Registration Advisor(Randi)UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Registration Advisor(Randi)UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		5077ED862F7DEEAA00EF77C4 /* Registration Advisor(Randi) */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Registration Advisor(Randi)";
+			sourceTree = "<group>";
+		};
+		5077ED942F7DEEAC00EF77C4 /* Registration Advisor(Randi)Tests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Registration Advisor(Randi)Tests";
+			sourceTree = "<group>";
+		};
+		5077ED9E2F7DEEAC00EF77C4 /* Registration Advisor(Randi)UITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Registration Advisor(Randi)UITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5077ED812F7DEEAA00EF77C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5077ED8E2F7DEEAC00EF77C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5077ED982F7DEEAC00EF77C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5077ED7B2F7DEEAA00EF77C4 = {
+			isa = PBXGroup;
+			children = (
+				5077ED862F7DEEAA00EF77C4 /* Registration Advisor(Randi) */,
+				5077ED942F7DEEAC00EF77C4 /* Registration Advisor(Randi)Tests */,
+				5077ED9E2F7DEEAC00EF77C4 /* Registration Advisor(Randi)UITests */,
+				5077ED852F7DEEAA00EF77C4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5077ED852F7DEEAA00EF77C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5077ED842F7DEEAA00EF77C4 /* Registration Advisor(Randi).app */,
+				5077ED912F7DEEAC00EF77C4 /* Registration Advisor(Randi)Tests.xctest */,
+				5077ED9B2F7DEEAC00EF77C4 /* Registration Advisor(Randi)UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5077ED832F7DEEAA00EF77C4 /* Registration Advisor(Randi) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5077EDA52F7DEEAC00EF77C4 /* Build configuration list for PBXNativeTarget "Registration Advisor(Randi)" */;
+			buildPhases = (
+				5077ED802F7DEEAA00EF77C4 /* Sources */,
+				5077ED812F7DEEAA00EF77C4 /* Frameworks */,
+				5077ED822F7DEEAA00EF77C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5077ED862F7DEEAA00EF77C4 /* Registration Advisor(Randi) */,
+			);
+			name = "Registration Advisor(Randi)";
+			packageProductDependencies = (
+			);
+			productName = "Registration Advisor(Randi)";
+			productReference = 5077ED842F7DEEAA00EF77C4 /* Registration Advisor(Randi).app */;
+			productType = "com.apple.product-type.application";
+		};
+		5077ED902F7DEEAC00EF77C4 /* Registration Advisor(Randi)Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5077EDA82F7DEEAC00EF77C4 /* Build configuration list for PBXNativeTarget "Registration Advisor(Randi)Tests" */;
+			buildPhases = (
+				5077ED8D2F7DEEAC00EF77C4 /* Sources */,
+				5077ED8E2F7DEEAC00EF77C4 /* Frameworks */,
+				5077ED8F2F7DEEAC00EF77C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5077ED932F7DEEAC00EF77C4 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5077ED942F7DEEAC00EF77C4 /* Registration Advisor(Randi)Tests */,
+			);
+			name = "Registration Advisor(Randi)Tests";
+			packageProductDependencies = (
+			);
+			productName = "Registration Advisor(Randi)Tests";
+			productReference = 5077ED912F7DEEAC00EF77C4 /* Registration Advisor(Randi)Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5077ED9A2F7DEEAC00EF77C4 /* Registration Advisor(Randi)UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5077EDAB2F7DEEAC00EF77C4 /* Build configuration list for PBXNativeTarget "Registration Advisor(Randi)UITests" */;
+			buildPhases = (
+				5077ED972F7DEEAC00EF77C4 /* Sources */,
+				5077ED982F7DEEAC00EF77C4 /* Frameworks */,
+				5077ED992F7DEEAC00EF77C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5077ED9D2F7DEEAC00EF77C4 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5077ED9E2F7DEEAC00EF77C4 /* Registration Advisor(Randi)UITests */,
+			);
+			name = "Registration Advisor(Randi)UITests";
+			packageProductDependencies = (
+			);
+			productName = "Registration Advisor(Randi)UITests";
+			productReference = 5077ED9B2F7DEEAC00EF77C4 /* Registration Advisor(Randi)UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5077ED7C2F7DEEAA00EF77C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					5077ED832F7DEEAA00EF77C4 = {
+						CreatedOnToolsVersion = 26.4;
+					};
+					5077ED902F7DEEAC00EF77C4 = {
+						CreatedOnToolsVersion = 26.4;
+						TestTargetID = 5077ED832F7DEEAA00EF77C4;
+					};
+					5077ED9A2F7DEEAC00EF77C4 = {
+						CreatedOnToolsVersion = 26.4;
+						TestTargetID = 5077ED832F7DEEAA00EF77C4;
+					};
+				};
+			};
+			buildConfigurationList = 5077ED7F2F7DEEAA00EF77C4 /* Build configuration list for PBXProject "Registration Advisor(Randi)" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5077ED7B2F7DEEAA00EF77C4;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 5077ED852F7DEEAA00EF77C4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5077ED832F7DEEAA00EF77C4 /* Registration Advisor(Randi) */,
+				5077ED902F7DEEAC00EF77C4 /* Registration Advisor(Randi)Tests */,
+				5077ED9A2F7DEEAC00EF77C4 /* Registration Advisor(Randi)UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5077ED822F7DEEAA00EF77C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5077ED8F2F7DEEAC00EF77C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5077ED992F7DEEAC00EF77C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5077ED802F7DEEAA00EF77C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5077ED8D2F7DEEAC00EF77C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5077ED972F7DEEAC00EF77C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5077ED932F7DEEAC00EF77C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5077ED832F7DEEAA00EF77C4 /* Registration Advisor(Randi) */;
+			targetProxy = 5077ED922F7DEEAC00EF77C4 /* PBXContainerItemProxy */;
+		};
+		5077ED9D2F7DEEAC00EF77C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5077ED832F7DEEAA00EF77C4 /* Registration Advisor(Randi) */;
+			targetProxy = 5077ED9C2F7DEEAC00EF77C4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5077EDA32F7DEEAC00EF77C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = SSNK38QW58;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5077EDA42F7DEEAC00EF77C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = SSNK38QW58;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5077EDA62F7DEEAC00EF77C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SSNK38QW58;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Cepeda.Registration-Advisor-Randi-";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5077EDA72F7DEEAC00EF77C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SSNK38QW58;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Cepeda.Registration-Advisor-Randi-";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5077EDA92F7DEEAC00EF77C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SSNK38QW58;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Cepeda.Registration-Advisor-Randi-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Registration Advisor(Randi).app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Registration Advisor(Randi)";
+			};
+			name = Debug;
+		};
+		5077EDAA2F7DEEAC00EF77C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SSNK38QW58;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Cepeda.Registration-Advisor-Randi-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Registration Advisor(Randi).app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Registration Advisor(Randi)";
+			};
+			name = Release;
+		};
+		5077EDAC2F7DEEAC00EF77C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SSNK38QW58;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Cepeda.Registration-Advisor-Randi-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Registration Advisor(Randi)";
+			};
+			name = Debug;
+		};
+		5077EDAD2F7DEEAC00EF77C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SSNK38QW58;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Cepeda.Registration-Advisor-Randi-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Registration Advisor(Randi)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5077ED7F2F7DEEAA00EF77C4 /* Build configuration list for PBXProject "Registration Advisor(Randi)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5077EDA32F7DEEAC00EF77C4 /* Debug */,
+				5077EDA42F7DEEAC00EF77C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5077EDA52F7DEEAC00EF77C4 /* Build configuration list for PBXNativeTarget "Registration Advisor(Randi)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5077EDA62F7DEEAC00EF77C4 /* Debug */,
+				5077EDA72F7DEEAC00EF77C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5077EDA82F7DEEAC00EF77C4 /* Build configuration list for PBXNativeTarget "Registration Advisor(Randi)Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5077EDA92F7DEEAC00EF77C4 /* Debug */,
+				5077EDAA2F7DEEAC00EF77C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5077EDAB2F7DEEAC00EF77C4 /* Build configuration list for PBXNativeTarget "Registration Advisor(Randi)UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5077EDAC2F7DEEAC00EF77C4 /* Debug */,
+				5077EDAD2F7DEEAC00EF77C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5077ED7C2F7DEEAA00EF77C4 /* Project object */;
+}
