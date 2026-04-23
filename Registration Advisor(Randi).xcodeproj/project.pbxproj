@@ -27,11 +27,43 @@
 		5077ED842F7DEEAA00EF77C4 /* Registration Advisor(Randi).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Registration Advisor(Randi).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5077ED912F7DEEAC00EF77C4 /* Registration Advisor(Randi)Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Registration Advisor(Randi)Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5077ED9B2F7DEEAC00EF77C4 /* Registration Advisor(Randi)UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Registration Advisor(Randi)UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5077EDB52F7E36E900EF77C4 /* SpinningCollegeLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningCollegeLogo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5077EDB22F7DF7FC00EF77C4 /* Exceptions for "Registration Advisor(Randi)" folder in "Registration Advisor(Randi)Tests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				1000_F_386827376_uWOOhKGk6A4UVL5imUBt20Bh8cmODqzx.jpg,
+				270540_medium.mp4,
+			);
+			target = 5077ED902F7DEEAC00EF77C4 /* Registration Advisor(Randi)Tests */;
+		};
+		5077EDB32F7DF7FC00EF77C4 /* Exceptions for "Registration Advisor(Randi)" folder in "Registration Advisor(Randi)UITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				1000_F_386827376_uWOOhKGk6A4UVL5imUBt20Bh8cmODqzx.jpg,
+				270540_medium.mp4,
+			);
+			target = 5077ED9A2F7DEEAC00EF77C4 /* Registration Advisor(Randi)UITests */;
+		};
+		5077EDF82F83416100EF77C4 /* Exceptions for "Registration Advisor(Randi)" folder in "Registration Advisor(Randi)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Registration-Advisor-Randi--Info.plist",
+			);
+			target = 5077ED832F7DEEAA00EF77C4 /* Registration Advisor(Randi) */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5077ED862F7DEEAA00EF77C4 /* Registration Advisor(Randi) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5077EDF82F83416100EF77C4 /* Exceptions for "Registration Advisor(Randi)" folder in "Registration Advisor(Randi)" target */,
+				5077EDB22F7DF7FC00EF77C4 /* Exceptions for "Registration Advisor(Randi)" folder in "Registration Advisor(Randi)Tests" target */,
+				5077EDB32F7DF7FC00EF77C4 /* Exceptions for "Registration Advisor(Randi)" folder in "Registration Advisor(Randi)UITests" target */,
+			);
 			path = "Registration Advisor(Randi)";
 			sourceTree = "<group>";
 		};
@@ -79,6 +111,7 @@
 				5077ED942F7DEEAC00EF77C4 /* Registration Advisor(Randi)Tests */,
 				5077ED9E2F7DEEAC00EF77C4 /* Registration Advisor(Randi)UITests */,
 				5077ED852F7DEEAA00EF77C4 /* Products */,
+				5077EDB42F7E365600EF77C4 /* UI */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +123,14 @@
 				5077ED9B2F7DEEAC00EF77C4 /* Registration Advisor(Randi)UITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5077EDB42F7E365600EF77C4 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5077EDB52F7E36E900EF77C4 /* SpinningCollegeLogo.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,6 +441,7 @@
 				DEVELOPMENT_TEAM = SSNK38QW58;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Registration-Advisor-Randi--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -432,6 +474,7 @@
 				DEVELOPMENT_TEAM = SSNK38QW58;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Registration-Advisor-Randi--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
