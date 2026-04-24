@@ -15,7 +15,50 @@ struct HomeView: View
     @State private var isShowingPDFPicker: Bool = false
     @State private var selectedPDFURL: URL?
     @State private var usedCRNs: Set<String> = []
-
+    
+    
+    func confirmSchedule()
+    {
+        guard let profile else {return}//If i dont have a user profile stop everything
+        
+        guard let url = URL(string: "http://127.0.0.1:8000/confirm-schedule") else {return}
+        
+        let requestBody = ConfirmScheuleRequest(
+            student_id: "YOUR_USERNAME_HERE",
+            major: profile.major,
+            program: profile.program,
+            gpa: profile.gpa,
+            current_classes: profile.in_progress_courses,
+            next_semester_classes: cardHolder
+        )
+        
+        guard let jsonData = try? JSONEncoder().encode(requestBody) else{
+            print("Failed to encode confirm request")
+            return
+        }
+        // Turn the body into json data format
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")//This tells the server i am sending json data
+        request.httpBody = jsonData
+        
+        URLSession.shared.dataTask(with: request)
+        {data, _, error in
+            if let error = error{
+                print("Confirm save failed: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let data = data else {return}// If no data returned stop
+            
+            if let responseText = String(data: data, encoding: .utf8 ){
+                print("Confirm response \(responseText)")
+            }
+            
+        }.resume()
+    }
+    
     func convertCardsToDict() -> [[String: Any]]
     {
         return cardHolder.map { card in
@@ -484,6 +527,14 @@ struct HomeView: View
                                 Text("Applying selected swap...")
                                     .foregroundColor(.yellow)
                             }
+                            
+                            Button("Confirm Recommended Classes")
+                            {
+                                confirmSchedule()
+                            }
+                            .foregroundColor(.red)
+                            .background(Color.green)
+                            .cornerRadius(10)
                         }
 
                         Spacer()

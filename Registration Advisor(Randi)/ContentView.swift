@@ -13,7 +13,7 @@ import AVKit// For audio and video
             {
                 ZStack()//alignmnet tells SwiftUi where to position child views inside a contianer where there is extra space. .top mkae it go up.
                 {
-                    VideoPlayer(player: player)// /VideoPlayer displays the video. This UI videplayer is connect tothe state variable player and can perorm re-rendering when player changes  penix
+                    VideoPlayer(player: player)// /VideoPlayer displays the video. This UI videplayer is connect tothe state variable player and can pyeserorm re-rendering when player changes  penix
                         .ignoresSafeArea()
                         .allowsHitTesting(false)//Tells swiftUi the video should not receive taps or keyboard focus, than my username and password can receive the interaction instead. Without this line the video background interferes with username and password touchs and wont let me type in them. Shamar is cool
                         .padding()

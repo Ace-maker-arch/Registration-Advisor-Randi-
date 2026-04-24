@@ -42,7 +42,7 @@ func formatDays(_ days: Days?) ->String
     return result.joined(separator: ", ")
 }
 
-struct Card: Decodable//codable lets Swift convert your data types to and from external formats like JSON. Basically let you turn it into jason format and swift format. When the backend send json decode it to the card pbject as a swift object
+struct Card: Codable//codable lets Swift convert your data types to and from external formats like JSON. Basically let you turn it into jason format and swift format. When the backend send json decode it to the card pbject as a swift object
 {
     let course_code: String
     let crn: String
@@ -67,7 +67,7 @@ struct Card: Decodable//codable lets Swift convert your data types to and from e
     }
 }
 
-struct Section: Decodable
+struct Section: Codable
 {
     let title: String?//Means that the variable is optional it could be a value or nil
     let term: String?
@@ -77,7 +77,7 @@ struct Section: Decodable
     let modality: String?
 }
 
-struct Meeting: Decodable
+struct Meeting: Codable
 {
     let start: String?
     let end: String?
@@ -86,7 +86,7 @@ struct Meeting: Decodable
     let room: String?
 }
 
-struct Days: Decodable{
+struct Days: Codable{
     let monday: Bool?
     let tuesday: Bool?
     let wednesday: Bool?
