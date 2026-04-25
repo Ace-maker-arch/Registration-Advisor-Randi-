@@ -6,7 +6,7 @@ struct StudentProfile: Decodable
     let program: String?
     let gpa: String?
     let credits_remaining: Int?
-    let in_progress_courses: [CurrentCourse]
+    let in_progress_courses: [Card]
     let final_schedule: [Card]
 }
 
@@ -41,6 +41,6 @@ struct ConfirmScheuleRequest: Codable// This is the exact body swift send to fas
     let major: String?
     let program: String?
     let gpa: String?
-    let current_classes: [CurrentCourse]
+    let current_classes: [Card]
     let next_semester_classes: [Card]
 }
