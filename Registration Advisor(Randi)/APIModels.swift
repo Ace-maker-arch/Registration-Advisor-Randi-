@@ -20,6 +20,11 @@ struct SwapOptionsResponse: Decodable
     let options: [Card]
 }
 
+struct ScheduleResponse: Decodable // This get the response from the upload-schedule
+{
+    let current_courses: [Card]
+}
+
 enum ModalityPreference: String, CaseIterable
 {
     case wpOnlineOnly = "WP Online Only"

@@ -67,11 +67,35 @@ struct Card: Codable//codable lets Swift convert your data types to and from ext
     }
 }
 
+struct LossyInt: Codable
+{
+    let value: Int
+
+    init(from decoder: any Decoder) throws
+    {
+        let container = try decoder.singleValueContainer()
+
+        if let intValue = try? container.decode(Int.self)
+        {
+            value = intValue  // already a number, use it directly
+        }
+        else if let stringValue = try? container.decode(String.self),
+                let parsed = Int(stringValue)
+        {
+            value = parsed    // was a string like "4", convert to Int
+        }
+        else
+        {
+            value = 0         // fallback if nothing works
+        }
+    }
+}
+
 struct Section: Codable
 {
     let title: String?//Means that the variable is optional it could be a value or nil
     let term: String?
-    let credits: Int?
+    let credits: LossyInt
     
     let meeting: Meeting?
     let modality: String?

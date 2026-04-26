@@ -15,6 +15,10 @@ struct HomeView: View
     @State private var isShowingPDFPicker: Bool = false
     @State private var selectedPDFURL: URL?
     @State private var usedCRNs: Set<String> = []
+    @State private var selectedTab: Int = 0 //Tracks which tab is showing. 0= next semester, 1 = current classes
+    @State private var currentCourses: [Card] = []// Holds the current semester coruses form the banner
+    @State private var isLoadingSchedule: Bool = false // shows loading spinner while schuedle pdf is being processed
+    @State private var isShowingSchedulePicker: Bool = false // Controls whether the schedule pricker is on or not
     
     
     func confirmSchedule()
@@ -28,7 +32,7 @@ struct HomeView: View
             major: profile.major,
             program: profile.program,
             gpa: profile.gpa,
-            current_classes: profile.in_progress_courses,
+            current_classes: currentCourses,
             next_semester_classes: cardHolder
         )
         
@@ -71,7 +75,7 @@ struct HomeView: View
                     "course_code": card.course_code,
                     "title": card.section.title ?? "N/A",
                     "term": card.section.term as Any,
-                    "credits": card.section.credits as Any,
+                    "credits": card.section.credits.value as Any,  // ← extract Int from LossyInt
                     "modality": card.section.modality as Any,
                     "meeting": [
                         "start": card.section.meeting?.start as Any,
@@ -90,7 +94,7 @@ struct HomeView: View
             ]
         }
     }
-
+    
     func uploadPDF()
     {
         guard let selectedPDFURL else
@@ -173,6 +177,44 @@ struct HomeView: View
             }
         }
         .resume()
+    }
+    
+    //Send the banner schedule pfg to upload schedule
+    func uploadSchedulePDF(_ url: URL)
+    {
+        // Read the pDF file into raw bytes
+        guard let pdfData = try? Data(contentsOf: url) else {return}
+        
+        //Show loading spinner while waiting for response
+        isLoadingSchedule = true
+        
+        // Vuuld the request to the new endpoint
+        var request = URLRequest(url: URL( string: "http://127.0.0.1:8000/upload-schedule")!)
+        request.httpMethod = "POST"
+        request.setValue("application/pdf", forHTTPHeaderField: "Content-Type")
+        request.httpBody = pdfData // Send raw pdf bytes, the pdf, to the server or backend
+        
+        let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest = 60
+        let session = URLSession(configuration: config)
+        
+        session.dataTask(with: request)
+        {data, _, error in
+            //  Always step spiiner when done even if there was an error
+            DispatchQueue.main.async {self.isLoadingSchedule = false}
+            
+            guard let data = data else {return}
+            
+            //Decode the response into scheudleresponse, which contains current_courses
+            if let decoded = try? JSONDecoder().decode(ScheduleResponse.self, from: data)// Try to turn the raw response data into a scheduleResponse. If it works put it in decoded if not fo nothing
+            {
+                DispatchQueue.main.async
+                {
+                    // Store the current coruses so the ui can display them
+                    self.currentCourses = decoded.current_courses// If we successfully understood the server response, update the UI.
+                }
+            }
+        }.resume()
     }
 
     func loadSwapOptions()
@@ -322,12 +364,12 @@ struct HomeView: View
                             .foregroundColor(.red)
                             .fontWeight(.bold)
                             .font(.largeTitle)
-
+                        
                         Text("Upload your Degree Works PDF to get class recommendations")
                             .frame(width: 300)
                             .foregroundColor(.red)
                             .fontWeight(.bold)
-
+                        
                         if let profile = profile
                         {
                             VStack(alignment: .leading, spacing: 5)
@@ -338,203 +380,45 @@ struct HomeView: View
                             }
                             .foregroundColor(.white)
                         }
-
-                        ZStack
+                        
+                        HStack(spacing: 0)
                         {
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.white.opacity(0.8))
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 100)
-
-                            if let selectedPDFURL
+                            // tap 0 button - enxt semster classses
+                            Button("Next Semester")
                             {
-                                Text("Selected PDF: \(selectedPDFURL.lastPathComponent)")
-                                    .foregroundColor(.white)
+                                selectedTab = 0
                             }
-                            else
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 12)
+                            // White background hwen active, clear when inactive
+                            .background(selectedTab == 0 ? Color.white.opacity(0.2): Color.clear)// vondition value_if_true: vlaue_if_false
+                            .foregroundColor(.white)
+                            .fontWeight(selectedTab == 0 ? .bold : .regular)
+                            
+                            // tab 1 button current semster classes
+                            Button("Current Classes")
                             {
-                                Text("No PDF selected yet.")
-                                    .foregroundColor(.gray)
+                                selectedTab = 1
                             }
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 12)
+                            .background(selectedTab == 1 ? Color.white.opacity(0.2): Color.clear)
+                            .foregroundColor(.white)
+                            .fontWeight(selectedTab == 1 ? .bold : .regular)
                         }
-
-                        Button("Import PDF")
-                        {
-                            isShowingPDFPicker = true
-                        }
-                        .fileImporter(isPresented: $isShowingPDFPicker, allowedContentTypes: [.pdf])
-                        { result in
-                            switch result
-                            {
-                            case .success(let url):
-                                selectedPDFURL = url
-                                modalityPreference = nil
-                            case .failure:
-                                break
-                            }
-                        }
-                        .foregroundColor(.black)
-                        .background(Color.red.opacity(0.9))
+                        .background(Color.blue.opacity(0.3))
                         .cornerRadius(10)
-                        .frame(width: 200)
-
-                        Text("5 Recommended Classes")
-                            .foregroundColor(.green)
-                            .fontWeight(.bold)
-
-                        if isGeneratingResponse
+                        
+                        //Show different content based on which tab is colleted
+                        if selectedTab == 0
                         {
-                            Text("AI generating response...")
-                                .foregroundColor(.yellow)
-                                .fontWeight(.semibold)
-                        }
-
-                        if selectedPDFURL != nil
-                        {
-                            VStack(spacing: 12)
-                            {
-                                Text("Choose Class Type Before Generating")
-                                    .foregroundColor(.white)
-                                    .fontWeight(.semibold)
-
-                                HStack
-                                {
-                                    Button("WP Online")
-                                    {
-                                        modalityPreference = .wpOnlineOnly
-                                        uploadPDF()
-                                    }
-                                    .foregroundColor(.white)
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 10)
-                                    .background(Color.green)
-                                    .cornerRadius(10)
-
-                                    Button("In Person + Async")
-                                    {
-                                        modalityPreference = .inPersonWithAsync
-                                        uploadPDF()
-                                    }
-                                    .foregroundColor(.white)
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 10)
-                                    .background(Color.orange)
-                                    .cornerRadius(10)
-                                }
-                            }
-                        }
-
-                        if filteredCards.isEmpty
-                        {
-                            Text("No recommendations yet")
-                                .foregroundColor(.red)
+                            // Next semester tab
+                            nextSemesterContent
                         }
                         else
                         {
-                            ForEach(filteredCards, id: \.crn)
-                            { card in
-                                VStack
-                                {
-                                    RecommendationCardView(card: card)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .stroke(selectedCRN == card.crn ? Color.green : Color.clear, lineWidth: 3)
-                                        )
-
-                                    Button("Select This Class")
-                                    {
-                                        selectedCRN = card.crn
-                                        replacementOptions = []
-                                        selectedReplacementCRN = ""
-                                    }
-                                    .disabled(usedCRNs.contains(card.crn))
-                                    .opacity(usedCRNs.contains(card.crn) ? 0.4 : 1.0)
-                                    .foregroundColor(.white)
-                                    .background(Color.green)
-                                    .cornerRadius(8)
-                                }
-                            }
-
-                            Text("Selected: \(selectedCRN)")
-                                .foregroundColor(.yellow)
-
-                            Button("Show Swap Options")
-                            {
-                                loadSwapOptions()
-                            }
-                            .disabled(selectedCRN.isEmpty || isLoadingSwapOptions)
-                            .opacity(selectedCRN.isEmpty || isLoadingSwapOptions ? 0.5 : 1.0)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.purple)
-                            .cornerRadius(10)
-
-                            if isLoadingSwapOptions
-                            {
-                                Text("Loading replacement classes...")
-                                    .foregroundColor(.yellow)
-                            }
-
-                            if !replacementOptions.isEmpty
-                            {
-                                Text("Choose a replacement class")
-                                    .foregroundColor(.white)
-                                    .fontWeight(.bold)
-
-                                ForEach(replacementOptions, id: \.crn)
-                                { replacement in
-                                    VStack
-                                    {
-                                        RecommendationCardView(card: replacement)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(
-                                                        selectedReplacementCRN == replacement.crn ? Color.orange : Color.clear,
-                                                        lineWidth: 3
-                                                    )
-                                            )
-
-                                        Button("Swap In This Class")
-                                        {
-                                            selectedReplacementCRN = replacement.crn
-                                        }
-                                        .foregroundColor(.white)
-                                        .background(Color.orange)
-                                        .cornerRadius(8)
-                                    }
-                                }
-                            }
-
-                            if !selectedReplacementCRN.isEmpty
-                            {
-                                Text("Replacement Selected: \(selectedReplacementCRN)")
-                                    .foregroundColor(.orange)
-                            }
-
-                            Button("Confirm Swap")
-                            {
-                                applySelectedSwap()
-                            }
-                            .disabled(selectedCRN.isEmpty || selectedReplacementCRN.isEmpty || isApplyingSwap)
-                            .opacity(selectedCRN.isEmpty || selectedReplacementCRN.isEmpty || isApplyingSwap ? 0.5 : 1.0)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.blue)
-                            .cornerRadius(10)
-
-                            if isApplyingSwap
-                            {
-                                Text("Applying selected swap...")
-                                    .foregroundColor(.yellow)
-                            }
-                            
-                            Button("Confirm Recommended Classes")
-                            {
-                                confirmSchedule()
-                            }
-                            .foregroundColor(.red)
-                            .background(Color.green)
-                            .cornerRadius(10)
+                            // Current classes tab
+                            currentClassesContent
                         }
 
                         Spacer()
@@ -544,4 +428,271 @@ struct HomeView: View
             }
         }
     }
+    
+    var nextSemesterContent: some View
+    {
+        VStack(spacing: 20)
+        {
+            ZStack
+            {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.white.opacity(0.8))
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 100)
+
+                if let selectedPDFURL
+                {
+                    Text("Selected PDF: \(selectedPDFURL.lastPathComponent)")
+                        .foregroundColor(.white)
+                }
+                else
+                {
+                    Text("No PDF selected yet.")
+                        .foregroundColor(.gray)
+                }
+            }
+
+            Button("Import PDF")
+            {
+                isShowingPDFPicker = true
+            }
+            .fileImporter(isPresented: $isShowingPDFPicker, allowedContentTypes: [.pdf])
+            { result in
+                switch result
+                {
+                case .success(let url):
+                    selectedPDFURL = url
+                    modalityPreference = nil
+                case .failure:
+                    break
+                }
+            }
+            .foregroundColor(.black)
+            .background(Color.red.opacity(0.9))
+            .cornerRadius(10)
+            .frame(width: 200)
+
+            Text("5 Recommended Classes")
+                .foregroundColor(.green)
+                .fontWeight(.bold)
+
+            if isGeneratingResponse
+            {
+                Text("AI generating response...")
+                    .foregroundColor(.yellow)
+                    .fontWeight(.semibold)
+            }
+
+            if selectedPDFURL != nil
+            {
+                VStack(spacing: 12)
+                {
+                    Text("Choose Class Type Before Generating")
+                        .foregroundColor(.white)
+                        .fontWeight(.semibold)
+
+                    HStack
+                    {
+                        Button("WP Online")
+                        {
+                            modalityPreference = .wpOnlineOnly
+                            uploadPDF()
+                        }
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
+                        .background(Color.green)
+                        .cornerRadius(10)
+
+                        Button("In Person + Async")
+                        {
+                            modalityPreference = .inPersonWithAsync
+                            uploadPDF()
+                        }
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
+                        .background(Color.orange)
+                        .cornerRadius(10)
+                    }
+                }
+            }
+
+            if filteredCards.isEmpty
+            {
+                Text("No recommendations yet")
+                    .foregroundColor(.red)
+            }
+            else
+            {
+                ForEach(filteredCards, id: \.crn)
+                { card in
+                    VStack
+                    {
+                        RecommendationCardView(card: card)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(selectedCRN == card.crn ? Color.green : Color.clear, lineWidth: 3)
+                            )
+
+                        Button("Select This Class")
+                        {
+                            selectedCRN = card.crn
+                            replacementOptions = []
+                            selectedReplacementCRN = ""
+                        }
+                        .disabled(usedCRNs.contains(card.crn))
+                        .opacity(usedCRNs.contains(card.crn) ? 0.4 : 1.0)
+                        .foregroundColor(.white)
+                        .background(Color.green)
+                        .cornerRadius(8)
+                    }
+                }
+
+                Text("Selected: \(selectedCRN)")
+                    .foregroundColor(.yellow)
+
+                Button("Show Swap Options")
+                {
+                    loadSwapOptions()
+                }
+                .disabled(selectedCRN.isEmpty || isLoadingSwapOptions)
+                .opacity(selectedCRN.isEmpty || isLoadingSwapOptions ? 0.5 : 1.0)
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.purple)
+                .cornerRadius(10)
+
+                if isLoadingSwapOptions
+                {
+                    Text("Loading replacement classes...")
+                        .foregroundColor(.yellow)
+                }
+
+                if !replacementOptions.isEmpty
+                {
+                    Text("Choose a replacement class")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+
+                    ForEach(replacementOptions, id: \.crn)
+                    { replacement in
+                        VStack
+                        {
+                            RecommendationCardView(card: replacement)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(
+                                            selectedReplacementCRN == replacement.crn ? Color.orange : Color.clear,
+                                            lineWidth: 3
+                                        )
+                                )
+
+                            Button("Swap In This Class")
+                            {
+                                selectedReplacementCRN = replacement.crn
+                            }
+                            .foregroundColor(.white)
+                            .background(Color.orange)
+                            .cornerRadius(8)
+                        }
+                    }
+                }
+
+                if !selectedReplacementCRN.isEmpty
+                {
+                    Text("Replacement Selected: \(selectedReplacementCRN)")
+                        .foregroundColor(.orange)
+                }
+
+                Button("Confirm Swap")
+                {
+                    applySelectedSwap()
+                }
+                .disabled(selectedCRN.isEmpty || selectedReplacementCRN.isEmpty || isApplyingSwap)
+                .opacity(selectedCRN.isEmpty || selectedReplacementCRN.isEmpty || isApplyingSwap ? 0.5 : 1.0)
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.blue)
+                .cornerRadius(10)
+
+                if isApplyingSwap
+                {
+                    Text("Applying selected swap...")
+                        .foregroundColor(.yellow)
+                }
+                
+                Button("Confirm Recommended Classes")
+                {
+                    confirmSchedule()
+                }
+                .foregroundColor(.red)
+                .background(Color.green)
+                .cornerRadius(10)
+                .disabled(cardHolder.isEmpty || currentCourses.isEmpty)
+                .opacity(cardHolder.isEmpty || currentCourses.isEmpty ? 0.5 : 1.0)
+
+            }
+        }
+    }
+    
+    var currentClassesContent: some View
+    {
+        VStack(spacing: 20)
+        {
+            Text("Current Semester Classes")
+                .foregroundColor(.green)
+                .fontWeight(.bold)
+
+            Text("Import your Banner schedule PDF to see your exact current classes")
+                .frame(width: 300)
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+
+            // button opens file picker for the Banner schedule PDF
+            Button("Import Schedule PDF")
+            {
+                isShowingSchedulePicker = true  // opens the file picker
+            }
+            // fileImporter shows the system file picker when isShowingSchedulePicker is true
+            .fileImporter(isPresented: $isShowingSchedulePicker, allowedContentTypes: [.pdf])
+            { result in
+                // result is either .success(url) or .failure(error)
+                if case .success(let url) = result
+                {
+                    uploadSchedulePDF(url)  // send PDF to backend
+                }
+            }
+            .foregroundColor(.black)
+            .background(Color.orange.opacity(0.9))
+            .cornerRadius(10)
+            .frame(width: 200)
+
+            // show spinner while backend is processing the schedule PDF
+            if isLoadingSchedule
+            {
+                Text("Loading your schedule...")
+                    .foregroundColor(.yellow)
+                    .fontWeight(.semibold)
+            }
+
+            // show message if no schedule loaded yet
+            if currentCourses.isEmpty && !isLoadingSchedule
+            {
+                Text("No schedule loaded yet")
+                    .foregroundColor(.red)
+            }
+            else
+            {
+                // display each current course using the exact same card view
+                // as next semester — same format, same structure
+                ForEach(currentCourses, id: \.crn)
+                { card in
+                    RecommendationCardView(card: card)
+                }
+            }
+        }
+    }
+    
+    
 }
