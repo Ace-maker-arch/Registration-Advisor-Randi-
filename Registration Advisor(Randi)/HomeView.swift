@@ -17,6 +17,7 @@ struct HomeView: View
     @State private var usedCRNs: Set<String> = []
     @State private var selectedTab: Int = 0 //Tracks which tab is showing. 0= next semester, 1 = current classes
     @State private var currentCourses: [Card] = []// Holds the current semester coruses form the banner
+    @State private var studentName: String?
     @State private var isLoadingSchedule: Bool = false // shows loading spinner while schuedle pdf is being processed
     @State private var isShowingSchedulePicker: Bool = false // Controls whether the schedule pricker is on or not
     
@@ -26,9 +27,31 @@ struct HomeView: View
         guard let profile else {return}//If i dont have a user profile stop everything
         
         guard let url = URL(string: "http://127.0.0.1:8000/confirm-schedule") else {return}
+        let resolvedStudentName = studentName ?? profile.student_name
+        let resolvedStudentID =
+            resolvedStudentName?
+                .trimmingCharacters(in: .whitespacesAndNewlines)
+                .lowercased()
+                .replacingOccurrences(of: " ", with: "_")
+                .replacingOccurrences(of: ",", with: "")
+                .replacingOccurrences(of: ".", with: "")
+                .replacingOccurrences(of: "-", with: "_")
+            ?? "unknown_student"
+        
+        print("studentName state before confirm:", studentName ?? "nil")
+        print("profile.student_name before confirm:", profile.student_name ?? "nil")
+        print("resolvedStudentName before confirm:", resolvedStudentName ?? "nil")
+        print("currentCourses count before confirm:", currentCourses.count)
+        print("cardHolder count before confirm:", cardHolder.count)
+        print("CONFIRM DEBUG HIT")
+        print("CONFIRM PAYLOAD student_id:", resolvedStudentID)
+        print("CONFIRM PAYLOAD student_name:", resolvedStudentName ?? "nil")
+        print("CONFIRM PAYLOAD currentClasses:", currentCourses.count)
+        print("CONFIRM PAYLOAD nextSemester:", cardHolder.count)
         
         let requestBody = ConfirmScheuleRequest(
-            student_id: "YOUR_USERNAME_HERE",
+            student_id: resolvedStudentID,
+            student_name: resolvedStudentName,
             major: profile.major,
             program: profile.program,
             gpa: profile.gpa,
@@ -142,10 +165,20 @@ struct HomeView: View
             do
             {
                 let decodedProfile = try JSONDecoder().decode(StudentProfile.self, from: data)
+                print("decoded final_schedule count:", decodedProfile.final_schedule.count)
+                for card in decodedProfile.final_schedule
+                {
+                    print("decoded card:", card.course_code)
+                }
                 DispatchQueue.main.async
                 {
                     self.profile = decodedProfile
                     self.cardHolder = decodedProfile.final_schedule
+                    print("cardHolder count:", self.cardHolder.count)
+                    for card in self.cardHolder
+                    {
+                        print("visible card:", card.course_code)
+                    }
                     self.replacementOptions = []
                     self.selectedCRN = ""
                     self.selectedReplacementCRN = ""
@@ -208,11 +241,18 @@ struct HomeView: View
             //Decode the response into scheudleresponse, which contains current_courses
             if let decoded = try? JSONDecoder().decode(ScheduleResponse.self, from: data)// Try to turn the raw response data into a scheduleResponse. If it works put it in decoded if not fo nothing
             {
+                print("SCHEDULE DEBUG HIT")
+                print("decoded schedule student_name:", decoded.student_name ?? "nil")
+                print("decoded current_courses count:", decoded.current_courses.count)
+                print("decoded.student_name:", decoded.student_name ?? "nil")
+
                 DispatchQueue.main.async
                 {
                     // Store the current coruses so the ui can display them
+                    self.studentName = decoded.student_name
                     self.currentCourses = decoded.current_courses// If we successfully understood the server response, update the UI.
                 }
+               
             }
         }.resume()
     }

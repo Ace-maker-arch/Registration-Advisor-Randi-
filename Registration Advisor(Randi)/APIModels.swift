@@ -4,6 +4,7 @@ struct StudentProfile: Decodable
 {
     let major: String?
     let program: String?
+    let student_name: String?
     let gpa: String?
     let credits_remaining: Int?
     let in_progress_courses: [Card]
@@ -22,7 +23,9 @@ struct SwapOptionsResponse: Decodable
 
 struct ScheduleResponse: Decodable // This get the response from the upload-schedule
 {
+    let student_name: String?
     let current_courses: [Card]
+
 }
 
 enum ModalityPreference: String, CaseIterable
@@ -43,6 +46,7 @@ struct CurrentCourse: Codable
 struct ConfirmScheuleRequest: Codable// This is the exact body swift send to fastAPI
 {
     let student_id: String
+    let student_name: String?
     let major: String?
     let program: String?
     let gpa: String?
