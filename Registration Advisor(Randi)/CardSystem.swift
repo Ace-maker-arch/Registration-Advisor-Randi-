@@ -99,6 +99,7 @@ struct Section: Codable
     
     let meeting: Meeting?
     let modality: String?
+    let all_meetings: [Meeting]?
 }
 
 struct Meeting: Codable
@@ -134,16 +135,34 @@ struct RecommendationCardView: View//This will draw each card in the UI.
                 .font(.subheadline)
                 .foregroundColor(.gray)
             
-            if let meeting = card.section.meeting{
-                Text("Time: \(meeting.start ?? "N/A")- \(meeting.end ?? "N/A")")
-                
-                Text("Days: \(formatDays(meeting.days))")
-                
-                Text("Location: \(meeting.location ?? "N/A")")
+            if let meetings = card.section.all_meetings, !meetings.isEmpty {
+                ForEach(meetings.indices, id: \.self) { i in
+                    let meeting = meetings[i]
+                    if meetings.count > 1 {
+                        let isOnline = meeting.location?.uppercased().contains("ONLINE") == true || meeting.room?.uppercased().contains("ASYN") == true
+                        let hasOnlineMeeting = meetings.contains { $0.location?.uppercased().contains("ONLINE") == true || $0.room?.uppercased().contains("ASYN") == true }
+                        let hasInPersonMeeting = meetings.contains { $0.location?.uppercased().contains("ONLINE") != true && $0.room?.uppercased().contains("ASYN") != true }
+                        let isMixedMode = hasOnlineMeeting && hasInPersonMeeting
 
+                        let label: String = isMixedMode ? (isOnline ? "Online:" : "In Person:") : (i == 0 ? "Lab:" : "Lecture:")
+
+                        Text(label)
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .foregroundColor(.purple)
+                    }
+                    Text("Time: \(meeting.start ?? "N/A") - \(meeting.end ?? "N/A")")
+                    Text("Days: \(formatDays(meeting.days))")
+                    Text("Location: \(meeting.location ?? "N/A")")
+                    Text("Room: \(meeting.room ?? "N/A")")
+                }
+            } else if let meeting = card.section.meeting {
+                Text("Time: \(meeting.start ?? "N/A") - \(meeting.end ?? "N/A")")
+                Text("Days: \(formatDays(meeting.days))")
+                Text("Location: \(meeting.location ?? "N/A")")
                 Text("Room: \(meeting.room ?? "N/A")")
-                
             }
+            
             
             Text("Mode : \(card.section.modality ?? "Unknown")")
                 .foregroundColor(card.section.modality == "ONLINE_ASYNC" ? .green: .blue)
