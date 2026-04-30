@@ -1,0 +1,779 @@
+{
+    "@odata.count": 17,
+    "@search.coverage": null,
+    "@search.facets": {
+        "CategoryIds": [
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "21468",
+                "count": 1
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "5296",
+                "count": 4
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "5298",
+                "count": 1
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "5299",
+                "count": 4
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "5300",
+                "count": 1
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "5302",
+                "count": 1
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "5304",
+                "count": 2
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "5305",
+                "count": 2
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "5306",
+                "count": 1
+            }
+        ],
+        "BenefitNames": [
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "Credit",
+                "count": 3
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "Free Food",
+                "count": 6
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "Free Stuff",
+                "count": 2
+            }
+        ],
+        "Theme": [
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "Arts",
+                "count": 3
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "Cultural",
+                "count": 1
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "Fundraising",
+                "count": 3
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "GroupBusiness",
+                "count": 2
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "Social",
+                "count": 3
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "Spirituality",
+                "count": 1
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "ThoughtfulLearning",
+                "count": 4
+            }
+        ],
+        "BranchId": [
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": 55451,
+                "count": 17
+            }
+        ]
+    },
+    "value": [
+        {
+            "id": "12445748",
+            "institutionId": 4775,
+            "organizationId": 55458,
+            "organizationIds": [],
+            "branchId": 55451,
+            "branchIds": [],
+            "organizationName": "Catholic Campus Ministry",
+            "organizationProfilePicture": "f9fb794a-968c-45a4-9bb4-db96df006a3113615cf8-6d1a-414e-8e8d-2d2f8968f3a1.jpeg",
+            "organizationNames": [],
+            "name": "Wisdom Wednesday",
+            "description": "<p>Opportunity to grow in your Faith with your peers!!</p>",
+            "location": "Prince of Peace Chapel",
+            "startsOn": "2026-04-29T23:00:00+00:00",
+            "endsOn": "2026-04-30T00:30:00+00:00",
+            "imagePath": "0ce2df7b-ad78-4801-98ba-a7474c8310a212841d71-26a8-4b1e-b750-6d9896697ffc.png",
+            "theme": "Spirituality",
+            "categoryIds": [
+                "5299",
+                "5306"
+            ],
+            "categoryNames": [
+                "Social",
+                "Spirituality"
+            ],
+            "benefitNames": [
+                "Free Food",
+                "Free Stuff"
+            ],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": "40.940820",
+            "longitude": "-74.194860",
+            "recScore": null,
+            "rsvpTotal": 0,
+            "@search.score": 99.99731
+        },
+        {
+            "id": "12427091",
+            "institutionId": 4775,
+            "organizationId": 55548,
+            "organizationIds": [],
+            "branchId": 55451,
+            "branchIds": [],
+            "organizationName": "Tau Kappa Epsilon",
+            "organizationProfilePicture": "df7247e9-f38f-4765-a1cc-87bfe2f08fb85c525617-40df-451b-b77f-c27479b32f4c.JPG",
+            "organizationNames": [],
+            "name": "Hoops 4 St. Jude",
+            "description": "<p>A 3v3 basketball tournament in Whitman Gym</p>\r\n<p>$15 entry per person, $150 prize for 1st place the rest is donated to the St. Jude Children&rsquo;s Hospital Foundation.</p>",
+            "location": "Whitman Gym",
+            "startsOn": "2026-04-29T20:30:00+00:00",
+            "endsOn": "2026-04-30T00:30:00+00:00",
+            "imagePath": "542bdcf4-201a-415c-82b4-362176ff7b25f523a396-0f15-473b-93db-c7a31f922617.png",
+            "theme": "Fundraising",
+            "categoryIds": [
+                "5302",
+                "5304"
+            ],
+            "categoryNames": [
+                "Sports and Recreations",
+                "Fundraising"
+            ],
+            "benefitNames": [],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": "40.944760",
+            "longitude": "-74.196530",
+            "recScore": null,
+            "rsvpTotal": 1,
+            "@search.score": 1.0
+        },
+        {
+            "id": "12200116",
+            "institutionId": 4775,
+            "organizationId": 139045,
+            "organizationIds": [],
+            "branchId": 55451,
+            "branchIds": [],
+            "organizationName": "Black Student Union",
+            "organizationProfilePicture": "a10046bd-fa4f-4011-95a2-580fccf94560aee10e40-a194-46ee-b1fb-507be665e6c7.jpg",
+            "organizationNames": [],
+            "name": "BSU Fall 26 E-Board Voting",
+            "description": "<p>Per BSU's constitution, for members who've attended 3 consecutive meetings without missing 3 consecutive meeings will be voting on the new e-board for the Fall 2026 and Spring 2027 school year.&nbsp;</p>",
+            "location": "UC 168 A/B",
+            "startsOn": "2026-04-29T23:00:00+00:00",
+            "endsOn": "2026-04-30T02:00:00+00:00",
+            "imagePath": null,
+            "theme": "GroupBusiness",
+            "categoryIds": [
+                "5296"
+            ],
+            "categoryNames": [
+                "Leadership"
+            ],
+            "benefitNames": [],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": null,
+            "longitude": null,
+            "recScore": null,
+            "rsvpTotal": 0,
+            "@search.score": 99.99731
+        },
+        {
+            "id": "12200096",
+            "institutionId": 4775,
+            "organizationId": 139045,
+            "organizationIds": [],
+            "branchId": 55451,
+            "branchIds": [],
+            "organizationName": "Black Student Union",
+            "organizationProfilePicture": "a10046bd-fa4f-4011-95a2-580fccf94560aee10e40-a194-46ee-b1fb-507be665e6c7.jpg",
+            "organizationNames": [],
+            "name": "BSU E-Board class",
+            "description": "<p>Current BSU E-Board members give the inside scoop as to what each Executive Board Position's responsibilities are. Mandatory for all e-board applicants to attend.</p>",
+            "location": "UC 216",
+            "startsOn": "2026-04-15T23:00:00+00:00",
+            "endsOn": "2026-04-30T02:00:00+00:00",
+            "imagePath": null,
+            "theme": "GroupBusiness",
+            "categoryIds": [
+                "5296"
+            ],
+            "categoryNames": [
+                "Leadership"
+            ],
+            "benefitNames": [],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": null,
+            "longitude": null,
+            "recScore": null,
+            "rsvpTotal": 0,
+            "@search.score": 1.0
+        },
+        {
+            "id": "12444402",
+            "institutionId": 4775,
+            "organizationId": 305974,
+            "organizationIds": [
+                "55478",
+                "305974"
+            ],
+            "branchId": 55451,
+            "branchIds": [
+                "55451"
+            ],
+            "organizationName": "The Center for Diversity & Inclusion",
+            "organizationProfilePicture": "35ebbcf6-e247-4ef5-a809-df2027ec2be4f880c9b7-336d-41c8-b5d2-715538d1cd6e.png",
+            "organizationNames": [
+                "Hillel",
+                "The Center for Diversity & Inclusion"
+            ],
+            "name": "Hillel's Chocolate Seder ",
+            "description": "<p>Sweet traditions, reimagined 🍫✨<br /><br />Join us for a Chocolate Seder, where every symbol tells a story and every bite is deliciously meaningful.<br /><br />ALL are welcome to join 😊</p>",
+            "location": "Club Hub ( SC 329A)",
+            "startsOn": "2026-04-30T16:30:00+00:00",
+            "endsOn": "2026-04-30T17:30:00+00:00",
+            "imagePath": "17422feb-8536-42a6-8c13-07aa1554583e461d6e33-6c6d-4faf-be8c-2247a0dc9fc5.png",
+            "theme": "Cultural",
+            "categoryIds": [],
+            "categoryNames": [],
+            "benefitNames": [
+                "Free Food"
+            ],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": "40.944760",
+            "longitude": "-74.196530",
+            "recScore": null,
+            "rsvpTotal": 0,
+            "@search.score": 99.91993
+        },
+        {
+            "id": "12227111",
+            "institutionId": 4775,
+            "organizationId": 385875,
+            "organizationIds": [],
+            "branchId": 55451,
+            "branchIds": [],
+            "organizationName": "Model United Nations",
+            "organizationProfilePicture": "14d090ee-7e5a-4edd-861f-5c44297b48642fa40d2c-2fb7-46a6-965d-d6bfc94e2b00.png",
+            "organizationNames": [],
+            "name": "Model United Nations Club Meeting",
+            "description": "<div class=\"flex flex-col text-sm pb-25\">\r\n<article class=\"text-token-text-primary w-full focus:outline-none [--shadow-height:45px] has-data-writing-block:pointer-events-none has-data-writing-block:-mt-(--shadow-height) has-data-writing-block:pt-(--shadow-height) [&amp;:has([data-writing-block])&gt;*]:pointer-events-auto scroll-mt-[calc(var(--header-height)+min(200px,max(70px,20svh)))]\" dir=\"auto\" tabindex=\"-1\" data-turn-id=\"request-WEB:c6955fc9-54c4-4f80-9096-740a2c1ae79c-10\" data-testid=\"conversation-turn-22\" data-scroll-anchor=\"true\" data-turn=\"assistant\">\r\n<div class=\"text-base my-auto mx-auto pb-10 [--thread-content-margin:--spacing(4)] @w-sm/main:[--thread-content-margin:--spacing(6)] @w-lg/main:[--thread-content-margin:--spacing(16)] px-(--thread-content-margin)\">\r\n<div class=\"[--thread-content-max-width:40rem] @w-lg/main:[--thread-content-max-width:48rem] mx-auto max-w-(--thread-content-max-width) flex-1 group/turn-messages focus-visible:outline-hidden relative flex w-full min-w-0 flex-col agent-turn\" tabindex=\"-1\">\r\n<div class=\"flex max-w-full flex-col grow\">\r\n<div class=\"min-h-8 text-message relative flex w-full flex-col items-end gap-2 text-start break-words whitespace-normal [.text-message+&amp;]:mt-1\" dir=\"auto\" data-message-author-role=\"assistant\" data-message-id=\"f8ec2f2b-7879-4387-a015-53fb888a8f43\" data-message-model-slug=\"gpt-5-2\">\r\n<div class=\"flex w-full flex-col gap-1 empty:hidden first:pt-[1px]\">\r\n<div class=\"markdown prose dark:prose-invert w-full wrap-break-word dark markdown-new-styling\">\r\n<p data-start=\"103\" data-end=\"531\" data-is-last-node=\"\" data-is-only-node=\"\">Come join the Model UN Club for our regular meetings, where you can meet new people, discuss important global issues, and grow your public speaking and leadership skills in a supportive environment. Whether you&rsquo;re experienced or completely new to Model UN, you&rsquo;ll have the chance to collaborate with peers, share ideas, and prepare together for exciting upcoming conferences. Everyone is welcome, and we&rsquo;d love to see you there.</p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</article>\r\n</div>",
+            "location": "Raubinger Hall - Room 101 (Side Entrance)",
+            "startsOn": "2026-04-30T16:30:00+00:00",
+            "endsOn": "2026-04-30T18:00:00+00:00",
+            "imagePath": "e45058ac-b2de-43ba-9e4f-911166733b04a7d31a9c-3c7b-4df3-b050-866690f0902e.png",
+            "theme": "ThoughtfulLearning",
+            "categoryIds": [
+                "5296"
+            ],
+            "categoryNames": [
+                "Leadership"
+            ],
+            "benefitNames": [],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": null,
+            "longitude": null,
+            "recScore": null,
+            "rsvpTotal": 0,
+            "@search.score": 99.91993
+        },
+        {
+            "id": "11991251",
+            "institutionId": 4775,
+            "organizationId": 55476,
+            "organizationIds": [
+                "55476",
+                "55532",
+                "55533",
+                "55534",
+                "55537",
+                "55538",
+                "55539",
+                "55540",
+                "55541",
+                "55542",
+                "55545",
+                "55546",
+                "55547",
+                "55548",
+                "55550",
+                "55552",
+                "55553",
+                "55554",
+                "55555",
+                "55556",
+                "55579",
+                "56842",
+                "161487",
+                "334346"
+            ],
+            "branchId": 55451,
+            "branchIds": [
+                "55451"
+            ],
+            "organizationName": "Greek Senate",
+            "organizationProfilePicture": "06f83354-730a-4c6b-80de-d495b3a5fa6d0923e6ca-15b9-4bde-8f17-47c6f4b47372.png",
+            "organizationNames": [
+                "Greek Senate",
+                "Delta Phi Epsilon",
+                "Iota Phi Theta",
+                "Alpha Phi Alpha",
+                "Kappa Alpha Psi",
+                "Lambda Sigma Upsilon",
+                "Lambda Theta Phi",
+                "Lambda Upsilon Lambda",
+                "Lambda Theta Alpha",
+                "Alpha Kappa Alpha",
+                "Phi Beta Sigma Fraternity Incorporated ",
+                "Phi Kappa Tau",
+                "Sigma Pi",
+                "Tau Kappa Epsilon",
+                "Lambda Tau Omega Sorority, Incorporated",
+                "Omega Phi Chi",
+                "Phi Sigma Sigma",
+                "Sigma Gamma Rho",
+                "Theta Phi Alpha",
+                "Zeta Phi Beta",
+                "Groove Phi Groove",
+                "Campus Activities, Service & Leadership",
+                "Sigma Alpha Iota",
+                "Phi Mu Alpha"
+            ],
+            "name": "Greek Senate Meetings",
+            "description": "<p>Greek Senate Meetings are held every Thursday at 5:00 PM. These meetings bring together members from multiple Greek councils to discuss campus-wide Greek life updates, upcoming events, policies, and collaborative initiatives. All Greek organizations are expected to send one representative. The space is open to organizations interested in cross-council collaboration and engagement within the Greek community. Please contact the Greek Senate leadership if you would like to be added to the meeting agenda prior to attendance for outside collaborations and communications within the WP Community.&nbsp;</p>",
+            "location": "University Commons 171 A&B",
+            "startsOn": "2026-04-30T21:00:00+00:00",
+            "endsOn": "2026-04-30T22:00:00+00:00",
+            "imagePath": "098344ca-5374-497c-a333-172c847c379d01b959ad-f4f9-4676-9be4-8c08ed94b7a3.png",
+            "theme": "ThoughtfulLearning",
+            "categoryIds": [
+                "5296",
+                "5298"
+            ],
+            "categoryNames": [
+                "Leadership",
+                "Professional Development"
+            ],
+            "benefitNames": [],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": null,
+            "longitude": null,
+            "recScore": null,
+            "rsvpTotal": 0,
+            "@search.score": 99.90001
+        },
+        {
+            "id": "12387762",
+            "institutionId": 4775,
+            "organizationId": 55476,
+            "organizationIds": [],
+            "branchId": 55451,
+            "branchIds": [],
+            "organizationName": "Greek Senate",
+            "organizationProfilePicture": "06f83354-730a-4c6b-80de-d495b3a5fa6d0923e6ca-15b9-4bde-8f17-47c6f4b47372.png",
+            "organizationNames": [],
+            "name": "IFC Festival",
+            "description": "<p>The Inter-Fraternity Council will be hosting a festival with multiple bands and activities throughout the day!</p>",
+            "location": "UC Zanfino Plaza",
+            "startsOn": "2026-04-30T20:30:00+00:00",
+            "endsOn": "2026-05-01T00:30:00+00:00",
+            "imagePath": "77c5361d-93ce-4559-9cc8-0f62efe193c2b8c7601e-1c43-4234-a786-490051c0140e.png",
+            "theme": "Social",
+            "categoryIds": [
+                "5299"
+            ],
+            "categoryNames": [
+                "Social"
+            ],
+            "benefitNames": [
+                "Free Food"
+            ],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": null,
+            "longitude": null,
+            "recScore": null,
+            "rsvpTotal": 0,
+            "@search.score": 99.90222
+        },
+        {
+            "id": "12416036",
+            "institutionId": 4775,
+            "organizationId": 201921,
+            "organizationIds": [
+                "55451",
+                "201921"
+            ],
+            "branchId": 55451,
+            "branchIds": [
+                "55451"
+            ],
+            "organizationName": "David & Lorraine Cheng Library",
+            "organizationProfilePicture": "00fc4185-4833-4755-8764-9d0d669b3e0c6250b3bc-ab14-4261-8233-3fbb77357c3c.jpg",
+            "organizationNames": [
+                "Student Government Association",
+                "David & Lorraine Cheng Library"
+            ],
+            "name": "Explorations- Student Research, Scholarship & Creative Expression",
+            "description": "<p class=\"cvGsUA direction-ltr align-center para-style-body\"><span class=\"a_GcMg font-feature-liga-off font-feature-clig-off font-feature-calt-off text-decoration-none text-strikethrough-none\">The Cheng Library &amp; the SGA Academic Affairs Committee are proud to celebrate Student Research, Scholarship &amp; Creative Expression!</span></p>\r\n<p class=\"cvGsUA direction-ltr align-center para-style-body\"><span class=\"a_GcMg font-feature-liga-off font-feature-clig-off font-feature-calt-off text-decoration-none text-strikethrough-none\">Student Research, Scholarship &amp; Creative works will be displayed in the Library April 20th-May 1st.</span></p>\r\n<p class=\"cvGsUA direction-ltr align-center para-style-body\"><span class=\"a_GcMg font-feature-liga-off font-feature-clig-off font-feature-calt-off text-decoration-none text-strikethrough-none\">Research Papers, posters, PowerPoint presentations, music, films, photography, and artwork are all accepted!</span></p>\r\n<p class=\"cvGsUA direction-ltr align-center para-style-body\"><span class=\"a_GcMg font-feature-liga-off font-feature-clig-off font-feature-calt-off text-decoration-none text-strikethrough-none\">Submit your work to join the celebration.</span></p>\r\n<p class=\"cvGsUA direction-ltr align-center para-style-body\"><span class=\"a_GcMg font-feature-liga-off font-feature-clig-off font-feature-calt-off text-decoration-none text-strikethrough-none\">Student work will be displayed in Library Display cases and other designated spaces for viewing by the University Community.</span></p>\r\n<p class=\"cvGsUA direction-ltr align-center para-style-body\"><span class=\"a_GcMg font-feature-liga-off font-feature-clig-off font-feature-calt-off text-decoration-none text-strikethrough-none\">Tier 3 LEARN Badge credit if your work is selected!</span></p>\r\n<p class=\"cvGsUA direction-ltr align-center para-style-body\"><strong><span class=\"a_GcMg font-feature-liga-off font-feature-clig-off font-feature-calt-off text-decoration-none text-strikethrough-none\"><a href=\"https://wpunj.qualtrics.com/jfe/form/SV_eWlOwgALtONH40K\" target=\"_blank\" rel=\"noopener\">Click Here to Submit your Work!</a></span></strong></p>",
+            "location": "Cheng Library",
+            "startsOn": "2026-04-13T16:00:00+00:00",
+            "endsOn": "2026-05-01T16:00:00+00:00",
+            "imagePath": "160699d1-fa8a-4b94-b30b-acf3078517f1ce0cc239-e502-42d6-8a7a-d9591b888432.png",
+            "theme": "ThoughtfulLearning",
+            "categoryIds": [
+                "21468"
+            ],
+            "categoryNames": [
+                "LEARN Badge Intermediate - Tier 3"
+            ],
+            "benefitNames": [
+                "Credit"
+            ],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": null,
+            "longitude": null,
+            "recScore": null,
+            "rsvpTotal": 0,
+            "@search.score": 1.0
+        },
+        {
+            "id": "12032292",
+            "institutionId": 4775,
+            "organizationId": 337673,
+            "organizationIds": [],
+            "branchId": 55451,
+            "branchIds": [],
+            "organizationName": "University Commons Operations",
+            "organizationProfilePicture": "7babb99c-59de-4d6f-a486-e2ecb8cd468faff41cb3-44d2-40f4-a22b-dffad325f197.png",
+            "organizationNames": [],
+            "name": "Arcade Craft Corner: Flower Pot Painting",
+            "description": "<p>Jump into spring and paint a flowerpot to grow your own flowers or herbs.</p>",
+            "location": "Arcade Ground Floor of The Student Center",
+            "startsOn": "2026-04-27T15:00:00+00:00",
+            "endsOn": "2026-05-01T16:00:00+00:00",
+            "imagePath": "6ca2b647-9a33-434e-b2e4-10cf71da21dcecc65356-b9b3-4855-ba70-c55c045565ca.png",
+            "theme": "Arts",
+            "categoryIds": [],
+            "categoryNames": [],
+            "benefitNames": [],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": null,
+            "longitude": null,
+            "recScore": null,
+            "rsvpTotal": 9,
+            "@search.score": 1.0
+        },
+        {
+            "id": "12227178",
+            "institutionId": 4775,
+            "organizationId": 55507,
+            "organizationIds": [],
+            "branchId": 55451,
+            "branchIds": [],
+            "organizationName": "Student Film Association",
+            "organizationProfilePicture": "3f7ff135-5481-47c7-9bc3-623f0e90239662f9ecb2-c00f-4641-8398-de4a302c5bf7.png",
+            "organizationNames": [],
+            "name": "31st Annual Film Festival",
+            "description": "<p>The Student Film Association proudly presents the&nbsp;<strong data-start=\"50\" data-end=\"79\">31st Annual Film Festival</strong>! This special event will showcase and celebrate the incredible projects and films created by our students. At the end of the night, we&rsquo;ll honor outstanding work with awards and enjoy delicious food together. Come out and support student creativity on the big screen!</p>",
+            "location": "Ballroom A",
+            "startsOn": "2026-05-03T18:00:00+00:00",
+            "endsOn": "2026-05-04T02:00:00+00:00",
+            "imagePath": "9cd4de48-2153-4dd6-a796-b1dbfbee0c4ddca71514-e705-478e-ba05-32ea28c15674.png",
+            "theme": "Social",
+            "categoryIds": [
+                "5299",
+                "5305"
+            ],
+            "categoryNames": [
+                "Social",
+                "Academic and Learning"
+            ],
+            "benefitNames": [
+                "Credit",
+                "Free Food"
+            ],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": "40.947630",
+            "longitude": "-74.196770",
+            "recScore": null,
+            "rsvpTotal": 7,
+            "@search.score": 99.593414
+        },
+        {
+            "id": "12227170",
+            "institutionId": 4775,
+            "organizationId": 55507,
+            "organizationIds": [],
+            "branchId": 55451,
+            "branchIds": [],
+            "organizationName": "Student Film Association",
+            "organizationProfilePicture": "3f7ff135-5481-47c7-9bc3-623f0e90239662f9ecb2-c00f-4641-8398-de4a302c5bf7.png",
+            "organizationNames": [],
+            "name": "31st Annual Film Festival",
+            "description": "<p>The Student Film Association proudly presents the&nbsp;<strong data-start=\"50\" data-end=\"79\">31st Annual Film Festival</strong>! This special event will showcase and celebrate the incredible projects and films created by our students. At the end of the night, we&rsquo;ll honor outstanding work with awards and enjoy delicious food together. Come out and support student creativity on the big screen!</p>",
+            "location": "Ballroom A",
+            "startsOn": "2026-05-03T18:00:00+00:00",
+            "endsOn": "2026-05-04T02:00:00+00:00",
+            "imagePath": "a6db0bf8-dc83-4269-835d-ac9f7327afd65c40923f-467d-49bd-b50a-d249906ac1dd.png",
+            "theme": "Arts",
+            "categoryIds": [
+                "5300"
+            ],
+            "categoryNames": [
+                "Arts and Music"
+            ],
+            "benefitNames": [
+                "Credit",
+                "Free Food"
+            ],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": "40.947630",
+            "longitude": "-74.196770",
+            "recScore": null,
+            "rsvpTotal": 6,
+            "@search.score": 99.593414
+        },
+        {
+            "id": "12032331",
+            "institutionId": 4775,
+            "organizationId": 337673,
+            "organizationIds": [],
+            "branchId": 55451,
+            "branchIds": [],
+            "organizationName": "University Commons Operations",
+            "organizationProfilePicture": "7babb99c-59de-4d6f-a486-e2ecb8cd468faff41cb3-44d2-40f4-a22b-dffad325f197.png",
+            "organizationNames": [],
+            "name": "Star Wars Day",
+            "description": "<p>Come to the Information Desk and vote for your favorite Star Wars character and be entered into a Star Wars raffle.</p>",
+            "location": "The Information Desk 1st Floor of The Student Center",
+            "startsOn": "2026-05-04T13:00:00+00:00",
+            "endsOn": "2026-05-05T00:00:00+00:00",
+            "imagePath": "f434b70c-e18f-4a60-907e-1865d338c1933204dfca-ab6b-46e8-8175-d9aa6b39a656.png",
+            "theme": "Social",
+            "categoryIds": [
+                "5299"
+            ],
+            "categoryNames": [
+                "Social"
+            ],
+            "benefitNames": [
+                "Free Stuff"
+            ],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": null,
+            "longitude": null,
+            "recScore": null,
+            "rsvpTotal": 3,
+            "@search.score": 99.508606
+        },
+        {
+            "id": "12301611",
+            "institutionId": 4775,
+            "organizationId": 55520,
+            "organizationIds": [],
+            "branchId": 55451,
+            "branchIds": [],
+            "organizationName": "WP Public Relations Student Society of America ",
+            "organizationProfilePicture": "4f60a12c-7011-41cb-8c7d-a1e887444a8cdec079e9-6804-45f0-8964-dae77de367f0.jpg",
+            "organizationNames": [],
+            "name": "PRSSA Chipotle Fundraiser ",
+            "description": "<p>The PRSSA chapter will be hosting a Chipotle College Fundraiser to raise funds in support of their chapter. During the designated fundraiser hours, a percentage of all qualifying sales will be donated back to PRSSA. Supporters must mention the fundraiser at checkout or present the event flyer for their purchase to count toward the total. This event provides an opportunity for members, friends, and the campus community to contribute to PRSSA initiatives while dining at Chipotle.</p>",
+            "location": "Chipotle Mexican Grill",
+            "startsOn": "2026-05-04T21:00:00+00:00",
+            "endsOn": "2026-05-05T01:00:00+00:00",
+            "imagePath": "7c85cded-ac63-48ae-987e-3ed1a47597286a2f6aa7-d19e-4721-924d-25d08da9f7fd.png",
+            "theme": "Fundraising",
+            "categoryIds": [],
+            "categoryNames": [],
+            "benefitNames": [],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": "40.960190",
+            "longitude": "-74.243380",
+            "recScore": null,
+            "rsvpTotal": 1,
+            "@search.score": 99.47285
+        },
+        {
+            "id": "12450683",
+            "institutionId": 4775,
+            "organizationId": 55565,
+            "organizationIds": [],
+            "branchId": 55451,
+            "branchIds": [],
+            "organizationName": "History Club",
+            "organizationProfilePicture": "44387911-1c0b-42bd-9c38-8b37831735f3e281a2d4-3230-44d8-8e3b-f1fdfbe3313f.jpg",
+            "organizationNames": [],
+            "name": "Two-Hundred and Fifty Years of America: The View from New Jersey",
+            "description": "<p>Please join us on Tuesday, May 5th for an all day celebration. There will be student presentations, Open House of New Jersey, Keynote Speaker, Dr. Sean Harvey.&nbsp;</p>\r\n<p>There will also be light refreshments.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Location: Library Auditorium&nbsp;</p>\r\n<p>Time: 9:00AM- 1:45PM&nbsp;</p>",
+            "location": "Library Auditorium ",
+            "startsOn": "2026-05-05T13:00:00+00:00",
+            "endsOn": "2026-05-05T17:45:00+00:00",
+            "imagePath": "bebc67db-3984-4724-bfdf-ae5920753da473448e7c-f16e-4c66-8d3f-16a893850fc4.png",
+            "theme": "ThoughtfulLearning",
+            "categoryIds": [
+                "5305"
+            ],
+            "categoryNames": [
+                "Academic and Learning"
+            ],
+            "benefitNames": [
+                "Free Food"
+            ],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": null,
+            "longitude": null,
+            "recScore": null,
+            "rsvpTotal": 0,
+            "@search.score": 99.40124
+        },
+        {
+            "id": "12032403",
+            "institutionId": 4775,
+            "organizationId": 337673,
+            "organizationIds": [],
+            "branchId": 55451,
+            "branchIds": [],
+            "organizationName": "University Commons Operations",
+            "organizationProfilePicture": "7babb99c-59de-4d6f-a486-e2ecb8cd468faff41cb3-44d2-40f4-a22b-dffad325f197.png",
+            "organizationNames": [],
+            "name": "Arcade Craft Corner: Craft Your Own Art",
+            "description": "<p>We are bringing out ALL the craft supplies for you to create your own craft masterpieces.</p>",
+            "location": "Arcade Ground Floor of The Student Center",
+            "startsOn": "2026-05-04T13:00:00+00:00",
+            "endsOn": "2026-05-08T21:30:00+00:00",
+            "imagePath": "643f7df1-625e-4f6b-a2cf-bee613afd4bbc8ecf201-14d3-444a-9ce9-9170c6b257ff.png",
+            "theme": "Arts",
+            "categoryIds": [],
+            "categoryNames": [],
+            "benefitNames": [],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": null,
+            "longitude": null,
+            "recScore": null,
+            "rsvpTotal": 1,
+            "@search.score": 99.508606
+        },
+        {
+            "id": "12432458",
+            "institutionId": 4775,
+            "organizationId": 354928,
+            "organizationIds": [],
+            "branchId": 55451,
+            "branchIds": [],
+            "organizationName": "WP Pionette Majorette Team",
+            "organizationProfilePicture": "236d626a-a5b6-48b9-ab2b-24f0b9b291ff77d34504-ee88-4f99-a655-03620de01196.png",
+            "organizationNames": [],
+            "name": "Pionettes: Sweet Success for 2026 Fundraiser ✨🍫",
+            "description": "<p>Pionettes: Sweet Success for 2026 Fundraiser ✨🍫</p>",
+            "location": "WPUNJ/ Until May 13 then off-campus",
+            "startsOn": "2026-05-01T13:00:00+00:00",
+            "endsOn": "2026-06-26T21:00:00+00:00",
+            "imagePath": "aaaeaca6-db91-4397-8a71-09c51b82553c69cdbb6a-cd9d-4551-9802-a61d8d5c4a36.png",
+            "theme": "Fundraising",
+            "categoryIds": [
+                "5304"
+            ],
+            "categoryNames": [
+                "Fundraising"
+            ],
+            "benefitNames": [],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": "40.944760",
+            "longitude": "-74.196530",
+            "recScore": null,
+            "rsvpTotal": 0,
+            "@search.score": 99.82911
+        }
+    ]
+}

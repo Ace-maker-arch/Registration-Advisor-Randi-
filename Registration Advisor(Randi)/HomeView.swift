@@ -251,6 +251,8 @@ struct HomeView: View
                     // Store the current coruses so the ui can display them
                     self.studentName = decoded.student_name
                     self.currentCourses = decoded.current_courses// If we successfully understood the server response, update the UI.
+                    print(studentName)
+                    print(currentCourses)
                 }
                
             }

@@ -53,3 +53,25 @@ struct ConfirmScheuleRequest: Codable// This is the exact body swift send to fas
     let current_classes: [Card]
     let next_semester_classes: [Card]
 }
+
+struct EventsResponse: Decodable// Decodable mean that the strucutre can be converted from json to swift
+{
+    let value: [CampusEvent]
+}
+
+struct CampusEvent: Decodable, Identifiable// Decodable can be converted from json. Identifiable tells SwiftUI that each CampusEvent has a unouqe id so it cna be used directly in ForEach without needing id: \.self
+{
+    let id: String// id is the unique identifier to each event. Because the struct conforms to identifable SwiftUi looks for a propert specifically named id to tell events apart
+    let name: String
+    let location: String?// Question marks make it optional, some events may not have location list
+    let startsOn: String
+    let endsOn: String
+    let imagePath: String?
+    let rsvpTotal: Int?
+    
+    var imageURL: URL?//This is a computed property that runs everytime this variable imageURL is accessed
+    {//The code instide run everytime you access imageURL
+        guard let imagePath, !imagePath.isEmpty else {return nil}
+        return URL(string: "https://se-images.campuslabs.com/clink/images/\(imagePath)" )
+    }
+}
