@@ -1,5 +1,6 @@
 import SwiftUI
 import UniformTypeIdentifiers
+import UserNotifications//This is for notifications
 
 struct HomeView: View
 {
@@ -21,6 +22,129 @@ struct HomeView: View
     @State private var isLoadingSchedule: Bool = false // shows loading spinner while schuedle pdf is being processed
     @State private var isShowingSchedulePicker: Bool = false // Controls whether the schedule pricker is on or not
     
+    
+    func requestNotificationPermission()
+    {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge])
+        {granted, error in
+            if granted
+            {
+                print("Notification permission granted")
+            }
+            else//Runs if user tapped Don't Allow
+            {
+                print("Notification permission denies")
+            }
+        }
+    }
+    
+    
+    func scheduleClassNotifications(for courses: [Card])
+    {
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()//Removes all duplicates
+        for course in courses
+        {
+            guard let meeting = course.section.meeting else {continue}
+            guard let start = meeting.start else {continue}
+            guard start.count == 4, let hour = Int(start.prefix(2)), let minute = Int(start.suffix(2)) else {continue}
+            let days = meeting.days
+            let dayNumbers: [(Bool?, Int)] = [//An array of tuples. Each tuple pairs the boolean with Apple's weekday number
+            (days?.monday, 2),
+            (days?.tuesday, 3),
+            (days?.wednesday, 4),
+            (days?.thursday, 5),
+            (days?.friday, 6),
+            ]
+            for (isActive, weekday) in dayNumbers//isActive tells us if the class meet that day. Apple weekday number for that class
+            {
+                guard isActive == true else{continue}//If the class does not meet on this day skip to the next day.
+                //30 minute remainer
+                scheduleNotification(
+                    id: "\(course.crn)-\(weekday)-30",
+                    title: "Class in 30 minutes",
+                    body: "\(course.section.title ?? course.course_code) - \(meeting.location ?? "") \(meeting.room ?? "")",
+                    weekday: weekday,
+                    hour: hour,
+                    minute: minute,
+                    offsetMinutes: -30,
+                )
+                
+                scheduleNotification(
+                               id: "\(course.crn)-\(weekday)-5",
+                               title: "Class in 5 minutes",
+                               body: "\(course.section.title ?? course.course_code) — \(meeting.location ?? "") \(meeting.room ?? "")",
+                               weekday: weekday,
+                               hour: hour,
+                               minute: minute,
+                               offsetMinutes: -5
+                               )
+            }
+        }
+    }
+    
+    func scheduleNotification(id: String, title: String, body: String, weekday: Int, hour: Int, minute: Int, offsetMinutes: Int) {
+        var totalMinutes = hour * 60 + minute + offsetMinutes
+        if totalMinutes < 0 { totalMinutes += 24 * 60 }
+
+        let notifyHour = totalMinutes / 60
+        let notifyMinute = totalMinutes % 60
+
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = .default
+
+        var dateComponents = DateComponents()
+        dateComponents.weekday = weekday
+        dateComponents.hour = notifyHour
+        dateComponents.minute = notifyMinute
+
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error {
+                print("Failed to schedule notification: \(error)")
+            }
+        }
+    }
+    
+    func scheduleRegistrationNotification(for date: String)
+    {
+        let cleaned = date
+            .replacingOccurrences(of: "st", with: "")
+            .replacingOccurrences(of: "nd", with: "")
+            .replacingOccurrences(of: "rd", with: "")
+            .replacingOccurrences(of: "th", with: "")
+            .trimmingCharacters(in: .whitespaces)
+        let formatter = DateFormatter()//converts between string and date
+        formatter.dateFormat = "MMMM d"
+        guard let regDate = formatter.date(from: cleaned) else{
+            print("Could not parse registration date: \(date)")
+            return
+        }
+        let calendar = Calendar.current//The user current calender system
+        let components = calendar.dateComponents([.month, .day], from: regDate)
+        let content = UNMutableNotificationContent()
+        content.title = "Registration Opens Today"
+        content.body = "Time register for next semester. Check your pin number and plan your schedule!"
+        content.sound = .default
+        var dataComponents = DateComponents()
+        dataComponents.month = components.month
+        dataComponents.day = components.day
+        dataComponents.hour = 8
+        dataComponents.minute = 0
+
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dataComponents, repeats: false)
+        let request = UNNotificationRequest(identifier: "registration-reminder", content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error {
+                print("Failed to schedule registration notification: \(error)")
+                }
+            }
+    }
     
     func confirmSchedule()
     {
@@ -69,6 +193,8 @@ struct HomeView: View
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")//This tells the server i am sending json data
         request.httpBody = jsonData
+        
+        scheduleClassNotifications(for: currentCourses)
         
         URLSession.shared.dataTask(with: request)
         {data, _, error in
@@ -174,6 +300,9 @@ struct HomeView: View
                 {
                     self.profile = decodedProfile
                     self.cardHolder = decodedProfile.final_schedule
+                    if let regDate = decodedProfile.registration_date {  // ADD HERE
+                        scheduleRegistrationNotification(for: regDate)
+                    }
                     print("cardHolder count:", self.cardHolder.count)
                     for card in self.cardHolder
                     {
@@ -466,6 +595,10 @@ struct HomeView: View
                         Spacer()
                     }
                     .padding()
+                    .onAppear()
+                    {
+                        requestNotificationPermission()
+                    }
                 }
             }
         }
