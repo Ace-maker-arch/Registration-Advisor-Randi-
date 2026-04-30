@@ -68,6 +68,9 @@ struct CampusEvent: Decodable, Identifiable// Decodable can be converted from js
     let endsOn: String
     let imagePath: String?
     let rsvpTotal: Int?
+    let latitude: String?
+    let longitude: String?
+
     
     var imageURL: URL?//This is a computed property that runs everytime this variable imageURL is accessed
     {//The code instide run everytime you access imageURL

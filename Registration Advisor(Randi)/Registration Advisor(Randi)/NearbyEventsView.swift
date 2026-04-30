@@ -119,10 +119,10 @@ struct NearbyEventsView: View {
 }
 
 func handleRSVP(_ event: CampusEvent) {
-    if event.location == nil {
-        print("This has longitude and latitude")
+    if let latitude = event.latitude, let longitude = event.longitude {
+        print("Coordinates: \(latitude), \(longitude)")
     } else {
-        print("RSVP for \(event.name) at \(event.location!)")
+        print("No coordinates for \(event.name)")
     }
 }
 
