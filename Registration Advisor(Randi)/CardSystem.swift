@@ -46,15 +46,19 @@ struct Card: Codable//codable lets Swift convert your data types to and from ext
 {
     let course_code: String
     let crn: String
+    let professor: String?
     let type: String
+    let reason: String?
     let section: Section
     
     private enum CodingKeys: String, CodingKey
-    {
+    {//These are the keys i expect in JSON  or to be reutrned from backend
         case course_code
         case crn
         case type
         case section
+        case professor
+        case reason
     }
     
     init(from decoder: any Decoder) throws
@@ -64,6 +68,9 @@ struct Card: Codable//codable lets Swift convert your data types to and from ext
         type = try container.decodeIfPresent(String.self, forKey: .type) ?? ""
         section = try container.decode(Section.self, forKey: .section)
         crn = (try? container.decode(LossyString.self, forKey: .crn).value) ?? ""
+        professor = try container.decodeIfPresent(String.self, forKey: .professor)
+        reason = try container.decodeIfPresent(String.self, forKey: .reason)
+        
     }
 }
 
@@ -134,6 +141,16 @@ struct RecommendationCardView: View//This will draw each card in the UI.
             Text(card.section.title ?? "No Title")
                 .font(.subheadline)
                 .foregroundColor(.gray)
+            
+            Text("Professor: \(card.professor ?? "No professor found")")
+                .font(.subheadline)
+                .foregroundColor(.purple)
+            if let reason = card.reason, !reason.isEmpty//Only run this code if the card has a reason and the reason is not blank
+            {
+                Text("Why this class: \(reason)")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
             
             if let meetings = card.section.all_meetings, !meetings.isEmpty {
                 ForEach(meetings.indices, id: \.self) { i in

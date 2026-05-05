@@ -21,6 +21,9 @@ struct HomeView: View
     @State private var studentName: String?
     @State private var isLoadingSchedule: Bool = false // shows loading spinner while schuedle pdf is being processed
     @State private var isShowingSchedulePicker: Bool = false // Controls whether the schedule pricker is on or not
+    @State private var chatMessage: String = ""//holds what the user is tpying into the field
+    @State private var chatReply: String = ""// Stores the AL's response from your backend and you use it to display the chatbot's answer on the screen
+    @State private var isChatLoading: Bool = false//Tracks whether the request is in progress. To show a loading spinner while waiting for the AI response.
     
     
     func requestNotificationPermission()
