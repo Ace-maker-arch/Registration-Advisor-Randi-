@@ -726,6 +726,67 @@ struct HomeView: View
                         .cornerRadius(8)
                     }
                 }
+                
+                //Chatbot here
+                VStack(alignment: .leading, spacing: 12)
+                {
+                    Text("Ask Regi")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                    
+                    TextField("Ask why a class was picked...", text: $chatMessage)//Creates an input box
+                        .textFieldStyle(.roundedBorder)//Adds rounded border styling
+                    Button//Defines butotn action what happens when tapped
+                    {
+                        guard let profile = profile else{
+                            chatReply = "Upload your degree Works PDF first"
+                            return
+                        }
+                        isChatLoading = true
+                        chatReply = ""//clear old reply
+                        Task//Starts async block like await content
+                        {
+                            let response = await sendChatMessage(//Calls your backend and waits for response
+                                message: chatMessage, // send what user typed
+                                profile: profile,
+                                schedule: cardHolder
+                                )
+                            chatReply = response.reply // Stores AI response aand triggers UI update
+                            
+                            // Here upadtig logic happens                            
+                            if let newSchedule = response.new_schedule
+                            {
+                                cardHolder = newSchedule
+                                replacementOptions = []
+                                selectedCRN = ""
+                                selectedReplacementCRN = ""
+                            }
+                            
+                            isChatLoading = false
+                        }
+                    } label://Defines what th ebutton looks like
+                    {
+                        Text(isChatLoading ? "Thinking...": "Ask Regi")//If loading thinking else ask regi
+                    }
+                    .disabled(chatMessage.isEmpty || isChatLoading)//Disables button if text is empty or request is already running
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.black.opacity(0.4))
+                    .cornerRadius(10)
+                    if !chatReply.isEmpty//Only show reply if it exists
+                    {
+                        Text(chatReply)//Displays AI response
+                            .foregroundColor(.black)
+                            .padding()
+                            .background(Color.white.opacity(0.9))
+                            .cornerRadius(12)
+                    }
+                }
+                .padding()
+                .background(Color.white.opacity(0.15))
+                .cornerRadius(12)
+                
+
 
                 Text("Selected: \(selectedCRN)")
                     .foregroundColor(.yellow)
