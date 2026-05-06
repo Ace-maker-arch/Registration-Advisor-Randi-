@@ -761,6 +761,10 @@ struct HomeView: View
                                 selectedCRN = ""
                                 selectedReplacementCRN = ""
                             }
+                            if let options = response.options//This mchanges the UI
+                            {
+                                replacementOptions = options
+                            }
                             
                             isChatLoading = false
                         }
