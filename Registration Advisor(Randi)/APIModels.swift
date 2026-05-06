@@ -1,4 +1,3 @@
-import SwiftUI
 import Foundation
 
 func convertCardsToDict(_ cards: [Card]) -> [[String: Any]] {
@@ -29,61 +28,6 @@ func convertCardsToDict(_ cards: [Card]) -> [[String: Any]] {
                 ]
             ]
         ]
-    }
-}
-
-func sendChatMessage(message: String, profile: StudentProfile, schedule: [Card] ) async -> ChatResponse//This function is supposed to take a user message+profile, send to backend, get ai reply, return it here
-{
-    //This creates the endpoint where your request is going which in this case is FastAPI server
-    guard let url = URL(string: "http://127.0.0.1:8000/chat") else
-    {
-        return ChatResponse(reply: "Invalid chat URL", new_schedule: nil, options: nil)
-    }
-    //Convert your swift profileinto JSON-friendly dictionary you do this because you cannot send swifts structs over the network
-    let profileDict: [String: Any] = [
-        "major": profile.major ?? "",
-        "program": profile.program ?? "",
-        "gpa": profile.gpa ?? "",
-        "credits_remaining": profile.credits_remaining ?? 0,
-        "final_schedule": convertCardsToDict(schedule)
-    ]
-    
-    //Full JSON body sent to FastAPI. This basically everything that will be sent to the backend
-    let body: [String: Any] = [
-        "message": message,
-        "profile": profileDict
-    ]
-    
-    //Turn dictionary into JSON data raw bytes
-    guard let jsonData = try? JSONSerialization.data(withJSONObject: body) else {
-        return ChatResponse(reply: "Could not convert chat request to JSON", new_schedule: nil, options: nil)
-    }
-    
-    //This creates the request
-    var request = URLRequest(url: url)
-    request.httpMethod = "POST"
-    
-    //Test FastAPI we are sending JSON type data
-    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    
-    //Attach the JSON body
-    request.httpBody = jsonData
-    
-    //Send request to backend
-    do{
-        let (data, _) = try await URLSession.shared.data(for: request)
-        
-
-        print("RAW CHAT RESPONSE:")
-        print(String(data: data, encoding: .utf8) ?? "nil")
-        
-        let decoded = try JSONDecoder().decode(ChatResponse.self, from: data)//Convert JSOn to swift object of type ChatResponse
-        return decoded
-        
-    } catch {
-        return ChatResponse(reply: "Chat error: \(error.localizedDescription)",
-        new_schedule: nil,
-        options: nil)
     }
 }
 
