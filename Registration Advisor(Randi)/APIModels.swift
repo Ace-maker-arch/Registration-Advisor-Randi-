@@ -53,6 +53,11 @@ struct SwapOptionsResponse: Decodable
     let options: [Card]
 }
 
+struct ServerErrorResponse: Decodable
+{
+    let error: String
+}
+
 struct ScheduleResponse: Decodable // This get the response from the upload-schedule
 {
     let student_name: String?

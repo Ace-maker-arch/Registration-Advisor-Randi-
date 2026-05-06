@@ -107,6 +107,7 @@ extension HomeView {
                             selectedCRN = card.crn
                             replacementOptions = []
                             selectedReplacementCRN = ""
+                            swapStatusMessage = nil
                         }
                         .disabled(usedCRNs.contains(card.crn))
                         .opacity(usedCRNs.contains(card.crn) ? 0.4 : 1.0)
@@ -132,6 +133,12 @@ extension HomeView {
                 if isLoadingSwapOptions {
                     Text("Loading replacement classes...")
                         .foregroundColor(.yellow)
+                }
+
+                if let swapStatusMessage {
+                    Text(swapStatusMessage)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
                 }
 
                 if !replacementOptions.isEmpty {

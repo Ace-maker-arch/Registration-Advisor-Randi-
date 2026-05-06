@@ -163,6 +163,7 @@ extension HomeView {
         isLoadingSwapOptions = true
         replacementOptions = []
         selectedReplacementCRN = ""
+        swapStatusMessage = nil
 
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -170,23 +171,36 @@ extension HomeView {
         request.httpBody = jsonData
 
         URLSession.shared.dataTask(with: request) { data, _, error in
-            if error != nil {
+            if let error {
                 DispatchQueue.main.async {
+                    swapStatusMessage = "Could not load swap options."
                     isLoadingSwapOptions = false
                 }
+                print("Swap options request failed: \(error.localizedDescription)")
                 return
             }
 
             guard let data else {
                 DispatchQueue.main.async {
+                    swapStatusMessage = "No swap options were returned."
                     isLoadingSwapOptions = false
                 }
                 return
             }
 
+            print("SWAP OPTIONS RAW RESPONSE:")
+            print(String(data: data, encoding: .utf8) ?? "nil")
+
             DispatchQueue.main.async {
                 if let decoded = try? JSONDecoder().decode(SwapOptionsResponse.self, from: data) {
                     replacementOptions = decoded.options
+                    if decoded.options.isEmpty {
+                        swapStatusMessage = "No replacement classes were found for that class."
+                    }
+                } else if let decodedError = try? JSONDecoder().decode(ServerErrorResponse.self, from: data) {
+                    swapStatusMessage = decodedError.error
+                } else {
+                    swapStatusMessage = "Swap options could not be decoded."
                 }
                 isLoadingSwapOptions = false
             }

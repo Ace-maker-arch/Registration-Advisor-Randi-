@@ -18,6 +18,7 @@ struct HomeView: View {
     @State var isShowingPDFPicker = false
     @State var selectedPDFURL: URL?
     @State var usedCRNs: Set<String> = []
+    @State var swapStatusMessage: String?
     @State var selectedTab: HomeTab = .nextSemester
     @State var currentCourses: [Card] = []
     @State var studentName: String?
