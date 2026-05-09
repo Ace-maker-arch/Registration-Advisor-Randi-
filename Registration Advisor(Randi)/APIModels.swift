@@ -38,7 +38,6 @@ struct StudentProfile: Decodable
     let student_name: String?
     let gpa: String?
     let credits_remaining: Int?
-    let in_progress_courses: [Card]
     let final_schedule: [Card]
     let registration_date: String?
 }
